@@ -1,0 +1,27 @@
+BEGIN TRY
+
+BEGIN TRAN;
+
+-- CreateTable
+CREATE TABLE [dbo].[Stock] (
+    [id] INT NOT NULL IDENTITY(1,1),
+    [symbol] NVARCHAR(1000) NOT NULL,
+    [lastPrice] FLOAT(53) NOT NULL,
+    [changePercentage] FLOAT(53) NOT NULL,
+    [updatedAt] DATETIME2 NOT NULL CONSTRAINT [Stock_updatedAt_df] DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT [Stock_pkey] PRIMARY KEY CLUSTERED ([id]),
+    CONSTRAINT [Stock_symbol_key] UNIQUE NONCLUSTERED ([symbol])
+);
+
+COMMIT TRAN;
+
+END TRY
+BEGIN CATCH
+
+IF @@TRANCOUNT > 0
+BEGIN
+    ROLLBACK TRAN;
+END;
+THROW
+
+END CATCH

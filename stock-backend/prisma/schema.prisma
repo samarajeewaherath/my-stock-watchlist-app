@@ -1,0 +1,20 @@
+// 1. Generator එක - මෙතනින් තමයි අපිට C# වල වගේ Code-First Client එක හදලා දෙන්නේ
+generator client {
+  provider = "prisma-client-js"
+}
+
+// 2. Datasource එක - මෙතන provider එක "sqlserver" විය යුතුයි
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+
+// 3. ඔබේ Stock Table එක (Model එක)
+model Stock {
+  id               Int      @id @default(autoincrement())
+  symbol           String   @unique
+  lastPrice        Float
+  changePercentage Float
+  updatedAt        DateTime @updatedAt @default(now())
+}
