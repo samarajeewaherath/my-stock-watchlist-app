@@ -5,7 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch server.ts"
+	"start": "node dist/server.js",
+    "dev": "nodemon server.ts",
+    "build": "tsc"  // 👈 මෙන්න මේ පේළිය අනිවාර්යයෙන්ම තියෙන්න ඕනේ
   },
   "keywords": [],
   "author": "",
