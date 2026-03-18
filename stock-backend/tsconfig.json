@@ -7,13 +7,14 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "ESNext",
-	"moduleResolution": "Node",
-    "target": "ESNext",
+    "module": "NodeNext",
+	"moduleResolution": "NodeNext",
+    "target": "NodeNext",
+	"outDir": "dist",
     "types": [],
     // For nodejs:
-    // "lib": ["ESNext"],
-    // "types": ["node"],
+    // "lib": ["NodeNext"],
+     "types": ["node"],
     // and npm install -D @types/node
 
     // Other Outputs
@@ -35,7 +36,7 @@
 
     // Recommended Options
     "strict": true,
-    "jsx": "react-jsx",
+    //"jsx": "react-jsx",
     "verbatimModuleSyntax": false,// මෙය false කරන්න
 	"esModuleInterop": true,
     "isolatedModules": true,
